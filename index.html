@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitahub - Mercado Inmobiliario GTA RP</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Tu archivo CSS -->
+</head>
+<body>
+    <header>
+        <h1>Bienvenido al Mercado Inmobiliario GTA RP</h1>
+    </header>
+
+    <section class="properties">
+        <div class="property">
+            <h2>Casa de Lujo - $500,000</h2>
+            <p>Ubicación: Los Santos, Vinewood Hills</p>
+            <p>Descripción: Hermosa casa con piscina y vistas panorámicas.</p>
+            <button onclick="openContactForm('Casa de Lujo', 500000)">Solicitar más Información</button>
+        </div>
+
+        <div class="property">
+            <h2>Apartamento - $100,000</h2>
+            <p>Ubicación: Downtown Los Santos</p>
+            <p>Descripción: Apartamento moderno y bien ubicado.</p>
+            <button onclick="openContactForm('Apartamento', 100000)">Solicitar más Información</button>
+        </div>
+    </section>
+
+    <!-- Formulario de contacto oculto -->
+    <section id="contact-form-section" style="display: none;">
+        <h2>Formulario de Contacto</h2>
+        <form id="contact-form" action="submit_form.php" method="POST">
+            <label for="player-name">Nombre IC (En el Juego):</label>
+            <input type="text" id="player-name" name="player-name" required><br>
+
+            <label for="player-phone">Número de Teléfono IC:</label>
+            <input type="text" id="player-phone" name="player-phone" required><br>
+
+            <label for="discord-id">Discord OOC (Fuera de Juego):</label>
+            <input type="text" id="discord-id" name="discord-id" required><br>
+
+            <label for="property-name">Nombre de la Propiedad:</label>
+            <input type="text" id="property-name" name="property-name" readonly><br>
+
+            <label for="property-price">Precio:</label>
+            <input type="text" id="property-price" name="property-price" readonly><br>
+
+            <label for="contact-info">Información Adicional o Comentarios:</label>
+            <textarea id="contact-info" name="contact-info" required></textarea><br>
+
+            <button type="submit">Enviar Solicitud</button>
+        </form>
+        <button onclick="closeContactForm()">Cerrar</button>
+    </section>
+
+    <script>
+        // Mostrar el formulario de contacto con la información de la propiedad
+        function openContactForm(propertyName, propertyPrice) {
+            document.getElementById('contact-form-section').style.display = 'block';
+            document.getElementById('property-name').value = propertyName;
+            document.getElementById('property-price').value = propertyPrice;
+        }
+
+        // Cerrar el formulario de contacto
+        function closeContactForm() {
+            document.getElementById('contact-form-section').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
